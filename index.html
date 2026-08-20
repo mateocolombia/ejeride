@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231c3138'/%3E%3Cpath d='M18 17l14 31' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M46 17L32 48' stroke='%23c99863' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M32 26v14' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-dasharray='4 5'/%3E%3C/svg%3E" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231c3138'/%3E%3Cpath d='M18 14h17c7 0 12 5 12 12 0 7-5 12-12 12h-8' fill='none' stroke='%23c99863' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M18 14v36' fill='none' stroke='%23c99863' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M18 31h16' fill='none' stroke='%23c99863' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M27 50c6-7 12-11 19-16' fill='none' stroke='%23c99863' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M21 50c8 0 14-1 22 0' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M29 44c4 1 7 2 10 6' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E" type="image/svg+xml">
   <title>EjeRide | Armenia · El Edén · Eje Cafetero</title>
   <style>
     :root{
@@ -42,11 +42,11 @@
     .lead{max-width:650px;margin:22px 0 0;color:var(--muted);font-size:17px}
 
     .header{position:absolute;z-index:20;inset:0 0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:26px;min-height:82px;padding:14px max(20px,calc((100vw - 1320px)/2));color:#fff;border-bottom:1px solid rgba(255,255,255,.13)}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand-mark{width:38px;height:38px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-mark{width:42px;height:42px;flex:0 0 auto}
     .brand-mark svg{width:100%;height:100%}
-    .brand-name{font-size:26px;font-weight:700;letter-spacing:-.05em}
-    .brand-name b{color:var(--sand)}
+    .brand-copy{display:grid;gap:2px}.brand-name{font-family:var(--serif);font-size:31px;font-weight:600;letter-spacing:-.035em;line-height:.9}.brand-tag{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+    .brand-name .ride{color:var(--sand)}
     .nav{display:flex;justify-content:center;gap:30px;font-size:13px;font-weight:600}
     .nav a{opacity:.88}
     .langs{display:flex;gap:6px;align-items:center}
@@ -108,7 +108,7 @@
     .contact .btn-main{min-width:230px}
 
     .footer{padding:42px 0 28px;color:#fff;background:#12282f}
-    .footer-row{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
+    .footer-row{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}.footer-brand .brand-mark{width:34px;height:34px}.footer-brand .brand-name{font-size:26px}.footer-brand .brand-tag{color:rgba(255,255,255,.52)}
     .footer p{max-width:650px;margin:0;color:rgba(255,255,255,.5);font-size:10px}
     .footer-links{display:flex;gap:18px;font-size:11px;color:rgba(255,255,255,.7)}
 
@@ -122,7 +122,7 @@
     }
     @media(max-width:560px){
       :root{--shell:min(100vw - 28px,1180px)}
-      .header{padding:12px 14px}.brand-name{font-size:22px}.brand-mark{width:32px;height:32px}.langs button{padding:6px}.hero-copy{padding-top:110px}.hero h1{font-size:clamp(54px,15vw,74px)}.hero p{font-size:15px}.actions{flex-direction:column;width:min(100%,350px);margin:28px auto 0}.btn{width:100%}.intro,.services,.destinations,.vehicle{padding:78px 0}.title{font-size:50px}.destination strong{font-size:27px}.vehicle-image{min-height:280px}.contact{padding:72px 0}.contact .btn-main{width:100%}
+      .header{padding:12px 14px}.brand-name{font-size:26px}.brand-tag{display:none}.brand-mark{width:34px;height:34px}.langs button{padding:6px}.hero-copy{padding-top:110px}.hero h1{font-size:clamp(54px,15vw,74px)}.hero p{font-size:15px}.actions{flex-direction:column;width:min(100%,350px);margin:28px auto 0}.btn{width:100%}.intro,.services,.destinations,.vehicle{padding:78px 0}.title{font-size:50px}.destination strong{font-size:27px}.vehicle-image{min-height:280px}.contact{padding:72px 0}.contact .btn-main{width:100%}.footer-brand .brand-tag{display:none}
     }
     @media(prefers-reduced-motion:reduce){.hero-media{display:none}html{scroll-behavior:auto}}
   </style>
@@ -131,13 +131,19 @@
   <header class="header">
     <a class="brand" href="#inicio" aria-label="EjeRide">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 120 120">
-          <path d="M28 26l26 64" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
-          <path d="M92 26L66 90" fill="none" stroke="#c99863" stroke-width="12" stroke-linecap="round"/>
-          <path d="M60 42v24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-dasharray="6 8"/>
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M14 12h17c7.2 0 12 4.8 12 11.3S38.2 35 31 35h-8.5" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M14 12v38" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M14 30h16" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M24 50c6-7 11-11 21-17" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M18 50c8.5-.4 15-.4 24.5 0" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M26 44c4.4 1 8.2 2.8 11.8 6" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
         </svg>
       </span>
-      <span class="brand-name">Eje<b>Vía</b></span>
+      <span class="brand-copy">
+        <span class="brand-name">Eje<span class="ride">Ride</span></span>
+        <span class="brand-tag">Movilidad con conductor</span>
+      </span>
     </a>
     <nav class="nav">
       <a href="#servicio" data-i18n="navService">Servicio</a>
@@ -250,7 +256,25 @@
 
   <footer class="footer">
     <div class="footer-row shell">
-      <p data-i18n="footerText">EjeRide es una marca independiente y un canal de contacto. No se presenta como empresa de taxi ni como plataforma afiliada a terceros. Cualquier servicio queda sujeto a disponibilidad y al marco legal aplicable.</p>
+      <div>
+        <div class="footer-brand" aria-hidden="true">
+          <span class="brand-mark">
+            <svg viewBox="0 0 64 64" fill="none">
+              <path d="M14 12h17c7.2 0 12 4.8 12 11.3S38.2 35 31 35h-8.5" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M14 12v38" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M14 30h16" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M24 50c6-7 11-11 21-17" stroke="#c99863" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M18 50c8.5-.4 15-.4 24.5 0" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+              <path d="M26 44c4.4 1 8.2 2.8 11.8 6" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-name">Eje<span class="ride">Ride</span></span>
+            <span class="brand-tag">Movilidad con conductor</span>
+          </span>
+        </div>
+        <p data-i18n="footerText">EjeRide es una marca independiente y un canal de contacto. No se presenta como empresa de taxi ni como plataforma afiliada a terceros. Cualquier servicio queda sujeto a disponibilidad y al marco legal aplicable.</p>
+      </div>
       <div class="footer-links"><span>Armenia · Quindío</span><span>ejeride.co</span></div>
     </div>
   </footer>
