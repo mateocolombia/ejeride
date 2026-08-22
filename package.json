@@ -1,7 +1,7 @@
 {
-  "name":"ejeride-live",
+  "name":"ejeride-live-v4",
   "private":true,
-  "version":"2.0.0",
-  "scripts":{"build":"echo EjeRide static site"},
+  "version":"4.0.0",
+  "scripts":{"build":"echo EjeRide V4 ready"},
   "dependencies":{"@netlify/blobs":"^11.0.1"}
 }

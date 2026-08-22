@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "."
+  publish = "public"
   functions = "netlify/functions"
 
 [functions]
@@ -16,7 +16,17 @@
   to = "/track.html"
   status = 200
 
+[[redirects]]
+  from = "/s/:token"
+  to = "/track.html?t=:token"
+  status = 200
+
 [[headers]]
   for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-store, max-age=0"
+
+[[headers]]
+  for = "/track.html"
   [headers.values]
     Cache-Control = "no-store, max-age=0"
