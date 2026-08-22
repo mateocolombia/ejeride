@@ -1,55 +1,51 @@
-# EjeRide MapLibre V6
+# EjeRide — WhatsApp Location V10
 
-Version 100 % sans Google Maps et sans clé de carte.
+Cette version supprime tout le partage GPS client via Safari. Le client envoie son emplacement dans WhatsApp, et Meta WhatsApp Business Platform transmet la latitude/longitude au webhook Netlify. L'admin EjeRide affiche ensuite le client sur MapLibre/OpenFreeMap.
 
-## Carte
-- MapLibre GL JS
-- OpenFreeMap (style vectoriel Liberty)
-- aucune clé API
-- aucune carte bancaire
+## Fichiers
+- `public/index.html` : page publique, bouton "Partager ma localisation par WhatsApp".
+- `public/admin.html` : disponibilité + carte clients WhatsApp.
+- `netlify/functions/wa-session.mjs` : crée les codes de demande et liste les clients.
+- `netlify/functions/whatsapp-webhook.mjs` : reçoit les messages WhatsApp et les positions.
+- `netlify/functions/status.mjs` : statut Disponible / Occupé / Indisponible.
+- `netlify/functions/config.mjs` : numéro WhatsApp et configuration de base.
 
-## Suivi
-- le chauffeur partage sa position depuis `admin.html`
-- le client peut partager sa position en direct avec le GPS
-- si Safari refuse, le client peut choisir son point en touchant la carte
-- le client voit la voiture EjeRide, la distance et l'ETA
-- l'admin voit également le point du client
-- boutons de test Armenia dans l'admin pour tester depuis la France
-
-## Variables Netlify
-Obligatoires :
+## Variables Netlify déjà utilisées
 - `EJERIDE_ADMIN_PIN`
-- `EJERIDE_WHATSAPP`
-
-Optionnelles :
+- `EJERIDE_WHATSAPP` (numéro international sans `+`)
 - `EJERIDE_DRIVER_NAME`
 - `EJERIDE_VEHICLE`
-- `EJERIDE_GOOGLE_REVIEW_URL`
 
-Aucune variable Google Maps ou Mapbox n'est nécessaire.
+## Nouvelles variables Meta
+### Obligatoire
+- `EJERIDE_META_VERIFY_TOKEN` : choisis toi-même une longue chaîne secrète. Elle doit être identique au Verify Token saisi dans Meta Webhooks.
 
-## Structure GitHub
-```
-public/
-  index.html
-  admin.html
-  track.html
-  robots.txt
-netlify/functions/
-  booking.mjs
-  config.mjs
-  route.mjs
-  status.mjs
-  trip.mjs
-netlify.toml
-package.json
-README.md
-```
+### Recommandé
+- `EJERIDE_META_APP_SECRET` : App Secret de ton application Meta. Permet de vérifier la signature `x-hub-signature-256` des webhooks.
 
-## Test rapide
-1. Déployer sur Netlify.
-2. Ouvrir `/admin.html`.
-3. Créer un lien client.
-4. Ouvrir ce lien sur un autre téléphone.
-5. Côté client : partager le GPS ou toucher la carte.
-6. Côté admin : `Test Armenia`, puis `Avancer le test` pour voir la voiture bouger même depuis la France.
+### Optionnel : réponses automatiques WhatsApp
+- `EJERIDE_META_ACCESS_TOKEN`
+- `EJERIDE_META_PHONE_NUMBER_ID`
+- `EJERIDE_META_GRAPH_VERSION` (optionnel, défaut `v23.0`)
+
+Sans les deux variables Access Token + Phone Number ID, la localisation est quand même reçue et affichée dans l'admin ; EjeRide n'envoie simplement pas de réponse automatique.
+
+## Webhook Meta à configurer
+Callback URL :
+`https://ejeride.netlify.app/.netlify/functions/whatsapp-webhook`
+
+Verify Token : la valeur exacte de `EJERIDE_META_VERIFY_TOKEN`.
+
+Abonne l'application au champ WhatsApp `messages` pour le WABA.
+
+## Parcours client
+1. Le client clique `Partager ma localisation par WhatsApp`.
+2. EjeRide crée un code du type `ER-7K4PZ` et ouvre WhatsApp avec ce code prérempli.
+3. Le client envoie ce message.
+4. Il touche `+` → `Ubicación / Localisation` → `Enviar tu ubicación actual`.
+5. Le webhook reçoit `latitude` + `longitude` et la position apparaît dans `/admin.html`.
+
+Même si un client envoie directement une position au numéro WhatsApp Business sans code, le webhook crée automatiquement une nouvelle entrée dans l'admin.
+
+## Important
+Le bouton web ne peut pas ouvrir directement le sélecteur de localisation de WhatsApp. WhatsApp exige que l'utilisateur choisisse lui-même `+ → Localisation`. Cette version évite toutefois complètement la géolocalisation Safari.

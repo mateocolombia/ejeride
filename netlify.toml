@@ -12,13 +12,8 @@
   status = 200
 
 [[redirects]]
-  from = "/track"
-  to = "/track.html"
-  status = 200
-
-[[redirects]]
-  from = "/s/:token"
-  to = "/track.html?t=:token"
+  from = "/whatsapp-webhook"
+  to = "/.netlify/functions/whatsapp-webhook"
   status = 200
 
 [[headers]]
@@ -27,6 +22,6 @@
     Cache-Control = "no-store, max-age=0"
 
 [[headers]]
-  for = "/track.html"
+  for = "/admin.html"
   [headers.values]
     Cache-Control = "no-store, max-age=0"
