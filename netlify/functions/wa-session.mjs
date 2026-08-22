@@ -28,9 +28,15 @@ export default async(request)=>{
   }
   if(!adminOK(request))return json({error:"PIN incorrect"},401);
   const token=clean(b.token,80);if(!token)return json({error:"Missing token"},400);const s=await store.get("session/"+token,{type:"json",consistency:"strong"});if(!s)return json({error:"Not found"},404);
-  if(action==="complete"){
-    s.status="completed";s.completedAt=new Date().toISOString();s.updatedAt=s.completedAt;await store.setJSON("session/"+token,s);
+  if(action==="complete"||action==="delete"){
+    s.status="completed";s.completedAt=new Date().toISOString();s.updatedAt=s.completedAt;
     if(s.waId){const m=await store.get("phone/"+s.waId,{type:"json",consistency:"strong"});if(m?.token===token)await store.delete("phone/"+s.waId)}
+    if(action==="delete"){
+      await store.delete("session/"+token);
+      if(s.code)await store.delete("code/"+s.code);
+      return json({deleted:true});
+    }
+    await store.setJSON("session/"+token,s);
     return json({session:s});
   }
   return json({error:"Invalid action"},400);
