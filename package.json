@@ -1,7 +1,11 @@
 {
-  "name": "ejeride-whatsapp-location",
+  "name": "ejeride-location-share",
   "private": true,
-  "version": "10.0.0",
-  "scripts": {"build": "echo EjeRide WhatsApp Location ready"},
-  "dependencies": {"@netlify/blobs": "^11.0.1"}
+  "version": "12.0.0",
+  "scripts": {
+    "build": "echo EjeRide Location Share ready"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.0.1"
+  }
 }

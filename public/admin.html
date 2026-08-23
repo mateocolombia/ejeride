@@ -4,98 +4,50 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>EjeRide · Admin</title>
+<title>EjeRide · Disponibilité</title>
 <style>
-:root{--deep:#10191d;--sand:#c99863;--paper:#f4efe8;--ink:#21343b;--muted:#748187;--green:#2fbf78;--red:#d9655d;--line:rgba(33,52,59,.14)}
+:root{--deep:#10191d;--sand:#c99863;--paper:#f4efe8;--ink:#21343b;--muted:#748187;--line:rgba(33,52,59,.14)}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 button,input,a{font:inherit}a{text-decoration:none;color:inherit}.hide{display:none!important}
-main{width:min(760px,calc(100vw - 24px));margin:18px auto 60px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-h1{margin:0;font-family:Georgia,serif;font-size:34px;font-weight:500}h1 span{color:var(--sand)}h2{margin:0 0 12px;font-size:16px}
-.muted{color:var(--muted);font-size:12px;line-height:1.5}.panel{background:#fff;border-radius:24px;padding:18px;margin:12px 0;box-shadow:0 18px 50px rgba(16,25,29,.05)}
-.login{display:grid;grid-template-columns:1fr auto;gap:8px}input{min-height:46px;padding:0 13px;border:1px solid var(--line);border-radius:14px}
-.btn{min-height:46px;padding:0 17px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:800;font-size:12px;cursor:pointer}
-.dark{background:var(--deep);color:#fff;border-color:var(--deep)}.green{background:var(--green);color:#fff;border-color:var(--green)}.red{color:var(--red)}
-.status{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice.active{box-shadow:0 0 0 3px rgba(16,25,29,.10)}
-.save-row{display:flex;gap:8px;margin-top:10px}.save-row input{width:92px}.save-row .btn{flex:1}
-.list{display:grid;gap:10px}.client{padding:15px;border:1px solid var(--line);border-radius:18px;background:#fff}
-.client-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.client strong{font-size:15px}.time{color:var(--muted);font-size:11px;white-space:nowrap}
-.state{margin:7px 0 12px;font-size:12px;color:var(--muted)}.received{color:#287c55;font-weight:800}
-.actions{display:flex;gap:8px;flex-wrap:wrap}.actions a,.actions button{flex:1;min-width:130px;display:flex;align-items:center;justify-content:center}
-.empty{padding:25px 0;text-align:center;color:var(--muted)}.new{width:100%}
-@media(max-width:600px){.top{align-items:flex-start}.status{grid-template-columns:1fr 1fr}.status .choice:last-child{grid-column:1/-1}.actions{display:grid;grid-template-columns:1fr 1fr}.actions a,.actions button{min-width:0}.login{grid-template-columns:1fr}}
+main{width:min(620px,calc(100vw - 24px));margin:20px auto 60px}.top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+h1{margin:0;font-family:Georgia,serif;font-size:35px;font-weight:500}h1 span{color:var(--sand)}h2{margin:0 0 13px;font-size:17px}
+.muted{color:var(--muted);font-size:12px;line-height:1.5}.panel{background:#fff;border-radius:24px;padding:19px;margin:12px 0;box-shadow:0 18px 50px rgba(16,25,29,.05)}
+.login{display:grid;grid-template-columns:1fr auto;gap:8px}input{min-height:48px;padding:0 14px;border:1px solid var(--line);border-radius:14px}
+.btn{min-height:48px;padding:0 18px;border:1px solid var(--line);border-radius:999px;background:#fff;font-weight:800;font-size:12px;cursor:pointer}
+.dark{background:var(--deep);color:#fff;border-color:var(--deep)}
+.status{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice.active{box-shadow:0 0 0 3px rgba(16,25,29,.11)}
+.save{display:flex;gap:8px;margin-top:11px}.save input{width:96px}.save .btn{flex:1}.feedback{min-height:18px;margin:11px 0 0;color:var(--muted);font-size:12px}
+@media(max-width:560px){.status{grid-template-columns:1fr 1fr}.status .choice:last-child{grid-column:1/-1}.login{grid-template-columns:1fr}.save{display:grid;grid-template-columns:90px 1fr}}
 </style>
 </head>
 <body>
 <main>
-  <div class="top"><div><h1>Eje<span>Ride</span></h1><div class="muted">Tableau de bord</div></div><a class="muted" href="/">Site public ↗</a></div>
-
+  <div class="top"><div><h1>Eje<span>Ride</span></h1><div class="muted">Gestion de la disponibilité</div></div><a class="muted" href="/">Site public ↗</a></div>
   <section class="panel" data-login>
-    <h2>Accès</h2>
+    <h2>Accès privé</h2>
     <div class="login"><input id="pin" type="password" placeholder="PIN"><button class="btn dark" data-open>Ouvrir</button></div>
-    <p class="muted" data-login-msg></p>
+    <p class="feedback" data-login-msg></p>
   </section>
-
-  <div class="hide" data-dash>
-    <section class="panel">
-      <h2>Disponibilité</h2>
-      <div class="status">
-        <button class="btn choice" data-state="available">🟢 Disponible</button>
-        <button class="btn choice" data-state="busy">🟠 Occupé</button>
-        <button class="btn choice" data-state="offline">⚫ Indisponible</button>
-      </div>
-      <div class="save-row"><input id="minutes" type="number" min="1" max="360" value="30" aria-label="Libre dans X minutes"><button class="btn dark" data-save>Mettre à jour</button></div>
-    </section>
-
-    <section class="panel">
-      <h2>Nouveau client</h2>
-      <button class="btn green new" data-new>Demander la localisation sur WhatsApp</button>
-      <p class="muted" data-new-msg>Le client envoie ensuite sa position avec la fonction Localisation de WhatsApp.</p>
-    </section>
-
-    <section class="panel">
-      <h2>Clients</h2>
-      <div class="list" data-list><div class="empty">Aucun client en attente.</div></div>
-    </section>
-  </div>
+  <section class="panel hide" data-dash>
+    <h2>Mon statut</h2>
+    <div class="status">
+      <button class="btn choice" data-state="available">🟢 Disponible</button>
+      <button class="btn choice" data-state="busy">🟠 Occupé</button>
+      <button class="btn choice" data-state="offline">⚫ Indisponible</button>
+    </div>
+    <div class="save"><input id="minutes" type="number" min="1" max="360" value="30" aria-label="Libre dans X minutes"><button class="btn dark" data-save>Mettre à jour</button></div>
+    <p class="feedback" data-feedback></p>
+  </section>
 </main>
 <script>
 (()=>{
-let pin='',state='available',sessions=[];
-const $=s=>document.querySelector(s);
-const headers=()=>({'Content-Type':'application/json','x-ejeride-pin':pin});
-async function api(url,o={}){const r=await fetch(url,{...o,headers:{...(o.headers||{}),...headers()},cache:'no-store'});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||'Erreur');return d}
-function esc(x){return String(x||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
-async function login(){pin=$('#pin').value.trim();try{await api('/.netlify/functions/wa-session?admin=1');sessionStorage.setItem('ejeridePin',pin);$('[data-dash]').classList.remove('hide');$('[data-login-msg]').textContent='Accès OK ✓';await loadStatus();await refresh()}catch{$('[data-login-msg]').textContent='PIN incorrect'}}
+let pin='',state='offline';const $=s=>document.querySelector(s);
+async function status(){const r=await fetch('/.netlify/functions/status',{cache:'no-store'});return r.json()}
+async function login(){pin=$('#pin').value.trim();try{const s=await status();sessionStorage.setItem('ejeridePin',pin);$('[data-dash]').classList.remove('hide');$('[data-login-msg]').textContent='Accès ouvert ✓';state=s.status||'offline';document.querySelectorAll('[data-state]').forEach(x=>x.classList.toggle('active',x.dataset.state===state))}catch{$('[data-login-msg]').textContent='Impossible de charger le statut.'}}
 $('[data-open]').onclick=login;$('#pin').value=sessionStorage.getItem('ejeridePin')||'';if($('#pin').value)login();
-
 document.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>{state=b.dataset.state;document.querySelectorAll('[data-state]').forEach(x=>x.classList.toggle('active',x===b))});
-async function loadStatus(){try{const s=await fetch('/.netlify/functions/status',{cache:'no-store'}).then(r=>r.json());state=s.status||'offline';document.querySelectorAll('[data-state]').forEach(x=>x.classList.toggle('active',x.dataset.state===state))}catch{}}
-$('[data-save]').onclick=async()=>{await fetch('/.netlify/functions/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pin,status:state,minutes:Number($('#minutes').value||30)})})};
-
-$('[data-new]').onclick=async()=>{const msg=$('[data-new-msg]');msg.textContent='Ouverture de WhatsApp…';try{const d=await api('/.netlify/functions/wa-session',{method:'POST',body:JSON.stringify({action:'create',admin:true,lang:'es'})});location.href=d.whatsappUrl}catch(e){msg.textContent='Impossible d’ouvrir WhatsApp.'}};
-
-function render(){
- const l=$('[data-list]');
- if(!sessions.length){l.innerHTML='<div class="empty">Aucun client en attente.</div>';return}
- l.innerHTML=sessions.map(s=>{
-   const name=esc(s.customerName||s.waId||'Client WhatsApp');
-   const time=new Date(s.updatedAt||s.createdAt).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-   const loc=s.location;
-   const maps=loc?`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(loc.lat+','+loc.lng)}&travelmode=driving&dir_action=navigate`:'';
-   return `<article class="client">
-     <div class="client-head"><strong>${name}</strong><span class="time">${time}</span></div>
-     <div class="state ${loc?'received':''}">${loc?'📍 Localisation reçue':'En attente de la localisation WhatsApp'}</div>
-     <div class="actions">
-       ${loc?`<a class="btn dark" href="${maps}" target="_blank" rel="noopener">Google Maps</a>`:''}
-       ${s.waId?`<a class="btn" href="https://wa.me/${String(s.waId).replace(/\D/g,'')}" target="_blank" rel="noopener">WhatsApp</a>`:''}
-       <button class="btn red" data-finish="${s.token}">${loc?'Terminer':'Supprimer'}</button>
-     </div>
-   </article>`
- }).join('');
- l.querySelectorAll('[data-finish]').forEach(b=>b.onclick=async()=>{b.disabled=true;try{await api('/.netlify/functions/wa-session',{method:'POST',body:JSON.stringify({action:'delete',token:b.dataset.finish})});await refresh()}catch{b.disabled=false}});
-}
-async function refresh(){try{const d=await api('/.netlify/functions/wa-session?admin=1');sessions=(d.sessions||[]).filter(s=>s.status!=='completed');render()}catch{}}
-setInterval(refresh,4000);
+$('[data-save]').onclick=async()=>{const f=$('[data-feedback]');f.textContent='Mise à jour…';const r=await fetch('/.netlify/functions/status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({pin,status:state,minutes:Number($('#minutes').value||30)})});const d=await r.json().catch(()=>({}));f.textContent=r.ok?'Statut mis à jour ✓':(d.error||'Erreur')};
 })();
 </script>
-</body></html>
+</body>
+</html>

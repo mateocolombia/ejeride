@@ -11,11 +11,6 @@
   to = "/admin.html"
   status = 200
 
-[[redirects]]
-  from = "/whatsapp-webhook"
-  to = "/.netlify/functions/whatsapp-webhook"
-  status = 200
-
 [[headers]]
   for = "/.netlify/functions/*"
   [headers.values]
