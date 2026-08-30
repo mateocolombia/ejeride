@@ -5,22 +5,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#10191d">
 <meta name="robots" content="index,follow">
-<meta name="description" content="EjeRide, contacto directo en Armenia, Quindío. Comparte tu ubicación con la aplicación que prefieras.">
+<meta name="description" content="EjeRide, contacto directo en Armenia, Quindío. Envía tu punto de recogida por WhatsApp en un solo paso.">
+<meta property="og:title" content="EjeRide · Armenia, Quindío">
+<meta property="og:description" content="Consulta disponibilidad y envía tu punto de recogida directamente por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EjeRide">
 <title>EjeRide · Armenia, Quindío</title>
 <style>
 :root{
-  --deep:#10191d;--sand:#c99863;--white:#fff;--green:#25D366;
+  --deep:#10191d;
+  --sand:#c99863;
+  --sand-dark:#b58452;
+  --white:#fff;
+  --green:#25d366;
   --serif:Georgia,"Times New Roman",serif;
   --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
 }
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:var(--sans);background:var(--deep)}
+html,body{margin:0;min-height:100%;background:var(--deep);font-family:var(--sans)}
 a{text-decoration:none;color:inherit}button{font:inherit}
 .hero{position:relative;min-height:100svh;overflow:hidden;color:#fff;isolation:isolate}
 .bg{
   position:absolute;inset:0;z-index:-3;
   background:
-    linear-gradient(180deg,rgba(7,16,19,.43),rgba(12,27,32,.47) 52%,rgba(8,18,22,.80)),
+    linear-gradient(180deg,rgba(7,16,19,.43),rgba(12,27,32,.50) 52%,rgba(8,18,22,.82)),
     url('/background.jpeg') center/cover no-repeat;
   transform:scale(1.015)
 }
@@ -31,39 +39,41 @@ a{text-decoration:none;color:inherit}button{font:inherit}
   border-bottom:1px solid rgba(255,255,255,.14)
 }
 .brand{display:flex;align-items:center;gap:12px}.mark{width:40px;height:40px}.mark svg{width:100%;height:100%}
-.name{font-family:var(--serif);font-size:31px;font-weight:600;letter-spacing:-.04em}.name span{color:var(--sand)}
-.sub{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.67)}
+.name{font-family:var(--serif);font-size:31px;font-weight:600;letter-spacing:-.04em;line-height:.9}.name span{color:var(--sand)}
+.sub{margin-top:4px;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.67)}
 .langs{display:flex;gap:4px}.langs button{border:0;background:transparent;color:#fff;padding:8px;border-radius:999px;font-size:10px;font-weight:700;opacity:.58;cursor:pointer}
 .langs button.active{opacity:1;background:rgba(255,255,255,.14)}
 .inner{min-height:100svh;display:grid;place-items:center;padding:105px 20px 55px}
-.copy{width:min(900px,100%);text-align:center}
+.copy{width:min(930px,100%);text-align:center}
 .eyebrow{margin:0 0 18px;font-size:10px;font-weight:700;letter-spacing:.30em;text-transform:uppercase;color:rgba(255,255,255,.84)}
-h1{margin:0;font-family:var(--serif);font-size:clamp(66px,8.7vw,122px);font-weight:500;line-height:.82;letter-spacing:-.04em;text-shadow:0 8px 34px rgba(0,0,0,.2)}
-.lead{max-width:680px;margin:28px auto 0;color:rgba(255,255,255,.9);font-size:17px;line-height:1.7}
-.status{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:9px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(0,0,0,.18);font-size:11px}
+h1{margin:0;font-family:var(--serif);font-size:clamp(66px,8.7vw,122px);font-weight:500;line-height:.82;letter-spacing:-.04em;text-shadow:0 8px 34px rgba(0,0,0,.20)}
+.lead{max-width:700px;margin:27px auto 0;color:rgba(255,255,255,.90);font-size:17px;line-height:1.7}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:9px 14px;border:1px solid rgba(255,255,255,.23);border-radius:999px;background:rgba(0,0,0,.20);font-size:11px;backdrop-filter:blur(8px)}
 .dot{width:8px;height:8px;border-radius:50%;background:#aaa}.status.available .dot{background:#42d88c}.status.busy .dot{background:#f0aa4f}
-.actions{display:flex;justify-content:center;gap:11px;flex-wrap:wrap;margin-top:27px}
-.btn{
-  min-height:58px;padding:0 25px;border:1px solid rgba(255,255,255,.50);border-radius:999px;
-  background:rgba(255,255,255,.08);color:#fff;font-weight:800;cursor:pointer;
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;transition:.2s
+.main-action{
+  width:min(100%,460px);min-height:62px;margin:27px auto 0;padding:0 24px;border:0;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;gap:11px;background:var(--green);color:#fff;
+  font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 18px 46px rgba(0,0,0,.20);transition:.2s
 }
-.btn:hover{transform:translateY(-2px)}.btn.primary{background:var(--sand);border-color:var(--sand)}.btn.whatsapp{border-color:rgba(255,255,255,.70)}
-.icon{width:20px;height:20px;display:inline-grid;place-items:center}.icon svg{width:100%;height:100%;fill:currentColor}
-.apps{margin:15px auto 0;color:rgba(255,255,255,.72);font-size:11px;letter-spacing:.03em}
-.privacy{margin:9px auto 0;color:rgba(255,255,255,.54);font-size:10px}
-.message{min-height:18px;margin:12px auto 0;color:#fff;font-size:11px}
+.main-action:hover{transform:translateY(-2px)}.main-action:disabled{opacity:.75;cursor:wait;transform:none}
+.main-action svg{width:22px;height:22px;fill:currentColor}
+.secondary{display:inline-block;margin-top:15px;padding:4px 2px;color:rgba(255,255,255,.84);font-size:12px;font-weight:700;border-bottom:1px solid rgba(255,255,255,.38)}
+.steps{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;margin:19px auto 0;color:rgba(255,255,255,.68);font-size:10px}
+.steps b{display:inline-grid;place-items:center;width:21px;height:21px;border:1px solid rgba(255,255,255,.28);border-radius:50%;color:#fff;font-size:9px}.steps i{width:18px;height:1px;background:rgba(255,255,255,.30)}
+.privacy{margin:12px auto 0;color:rgba(255,255,255,.54);font-size:10px}
+.message{min-height:18px;margin:11px auto 0;color:#fff;font-size:11px}
 .fallback{
-  display:none;width:min(570px,100%);margin:14px auto 0;padding:15px;border:1px solid rgba(255,255,255,.18);
-  border-radius:20px;background:rgba(7,16,19,.48);backdrop-filter:blur(10px)
+  display:none;width:min(590px,100%);margin:15px auto 0;padding:17px;border:1px solid rgba(255,255,255,.18);
+  border-radius:20px;background:rgba(7,16,19,.58);text-align:left;backdrop-filter:blur(13px)
 }
-.fallback.show{display:block}.fallback strong{display:block;font-size:13px}.fallback p{margin:7px 0 12px;color:rgba(255,255,255,.7);font-size:11px}
-.fallback-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.fallback .btn{min-height:44px;padding:0 17px;font-size:11px}
+.fallback.show{display:block}.fallback strong{display:block;font-size:14px}.fallback p{margin:7px 0 13px;color:rgba(255,255,255,.72);font-size:11px;line-height:1.55}
+.fallback-actions{display:flex;gap:8px}.fallback-actions button,.fallback-actions a{flex:1;min-height:45px;padding:0 15px;border-radius:999px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.32);background:transparent;color:#fff;font-size:11px;font-weight:800;cursor:pointer}
+.fallback-actions a{background:var(--sand);border-color:var(--sand)}
 @media(max-width:620px){
   .header{padding:11px 13px}.mark{width:34px;height:34px}.name{font-size:27px}.sub{display:none}
   .inner{padding:96px 14px 42px}h1{font-size:clamp(55px,15.7vw,78px)}.lead{font-size:15px}
-  .actions{flex-direction:column;width:min(100%,355px);margin:25px auto 0}.btn{width:100%}
-  .apps{max-width:320px;line-height:1.5}.fallback-actions{display:grid;grid-template-columns:1fr 1fr}.fallback .btn{width:auto}
+  .main-action{width:min(100%,355px);font-size:14px}.steps{max-width:330px;line-height:1.5}.steps i{width:10px}
+  .fallback-actions{display:grid;grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -82,31 +92,31 @@ h1{margin:0;font-family:var(--serif);font-size:clamp(66px,8.7vw,122px);font-weig
     <div class="copy">
       <p class="eyebrow">ARMENIA · QUINDÍO</p>
       <h1 data-i18n="title">Muévete tranquilo.<br>Contacto directo.</h1>
-      <p class="lead" data-i18n="lead">Comprueba disponibilidad y comparte tu ubicación con la aplicación que prefieras.</p>
+      <p class="lead" data-i18n="lead">Envía tu punto de recogida por WhatsApp en un solo paso. Sin formulario y sin instalar otra aplicación.</p>
 
       <div class="status" data-status><span class="dot"></span><span data-status-text>Cargando…</span></div>
 
-      <div class="actions">
-        <button class="btn primary" data-share-location>
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.1 7 13 7 13s7-7.9 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg></span>
-          <span data-i18n="share">Compartir mi ubicación</span>
-        </button>
-        <a class="btn whatsapp" data-chat href="#">
-          <span class="icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M19.1 17.7c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-2.2-1.1-3.7-2-5.2-4.5-.4-.7.4-.7 1.1-2.2.1-.2 0-.5-.1-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-1 1.1-1.6 2.4-1.6 3.8 0 2.2 1.6 4.3 1.8 4.6.2.3 3.1 4.8 7.6 6.7 2.8 1.2 3.9 1.3 5.3 1.1.9-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5zM16.1 3A12.8 12.8 0 0 0 5.2 22.5L3 30l7.7-2A12.8 12.8 0 1 0 16.1 3zm0 23.3c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.6 1.2 1.2-4.5-.3-.5A10.5 10.5 0 1 1 16.1 26.3z"/></svg></span>
-          <span data-i18n="chat">Contactar por WhatsApp</span>
-        </a>
-      </div>
+      <button class="main-action" data-location-whatsapp>
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.1 17.7c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-2.2-1.1-3.7-2-5.2-4.5-.4-.7.4-.7 1.1-2.2.1-.2 0-.5-.1-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-1 1.1-1.6 2.4-1.6 3.8 0 2.2 1.6 4.3 1.8 4.6.2.3 3.1 4.8 7.6 6.7 2.8 1.2 3.9 1.3 5.3 1.1.9-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5zM16.1 3A12.8 12.8 0 0 0 5.2 22.5L3 30l7.7-2A12.8 12.8 0 1 0 16.1 3zm0 23.3c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.6 1.2 1.2-4.5-.3-.5A10.5 10.5 0 1 1 16.1 26.3z"/></svg>
+        <span data-i18n="mainButton">Enviar mi ubicación por WhatsApp</span>
+      </button>
 
-      <p class="apps" data-i18n="apps">Mensajes · Telegram · WhatsApp · Mail · AirDrop</p>
-      <p class="privacy" data-i18n="privacy">Tu ubicación solo se comparte cuando eliges dónde enviarla.</p>
+      <a class="secondary" data-chat href="#" data-i18n="chatOnly">Escribir sin compartir ubicación</a>
+
+      <div class="steps" aria-label="Cómo funciona">
+        <b>1</b><span data-i18n="step1">Toca el botón</span><i></i>
+        <b>2</b><span data-i18n="step2">Permite la ubicación</span><i></i>
+        <b>3</b><span data-i18n="step3">Pulsa enviar en WhatsApp</span>
+      </div>
+      <p class="privacy" data-i18n="privacy">EjeRide no guarda tu posición en el sitio. El mensaje no se envía hasta que tú lo confirmas en WhatsApp.</p>
       <p class="message" data-message></p>
 
       <div class="fallback" data-fallback>
-        <strong data-i18n="fallbackTitle">No pude obtener tu ubicación</strong>
-        <p data-i18n="fallbackText">Abre Mapas o Google Maps, toca tu punto azul y utiliza Compartir.</p>
+        <strong data-i18n="fallbackTitle">No pudimos obtener tu ubicación</strong>
+        <p data-fallback-text>En WhatsApp, toca + → Ubicación → Enviar ubicación actual.</p>
         <div class="fallback-actions">
-          <a class="btn" href="https://maps.apple.com/" target="_blank" rel="noopener" data-i18n="apple">Apple Maps</a>
-          <a class="btn" href="https://www.google.com/maps/" target="_blank" rel="noopener" data-i18n="google">Google Maps</a>
+          <button type="button" data-retry data-i18n="retry">Reintentar</button>
+          <a data-chat-fallback href="#" data-i18n="openWhatsapp">Abrir WhatsApp</a>
         </div>
       </div>
     </div>
@@ -116,83 +126,116 @@ h1{margin:0;font-family:var(--serif);font-size:clamp(66px,8.7vw,122px);font-weig
 <script>
 (()=>{
 let lang='es',cfg={whatsapp:'573001234567'},live=null;
+const $=s=>document.querySelector(s);
 const copy={
  es:{
   sub:'Movilidad con conductor',title:'Muévete tranquilo.<br>Contacto directo.',
-  lead:'Comprueba disponibilidad y comparte tu ubicación con la aplicación que prefieras.',
-  share:'Compartir mi ubicación',chat:'Contactar por WhatsApp',
-  apps:'Mensajes · Telegram · WhatsApp · Mail · AirDrop',
-  privacy:'Tu ubicación solo se comparte cuando eliges dónde enviarla.',
-  locating:'Buscando tu ubicación…',ready:'Elige la aplicación con la que quieres compartirla.',
-  copied:'Enlace de ubicación copiado. Pégalo en la aplicación que prefieras.',
-  denied:'La ubicación está bloqueada en el navegador.',
-  fallbackTitle:'No pude obtener tu ubicación',
-  fallbackText:'Abre Mapas o Google Maps, toca tu punto azul y utiliza Compartir.',
-  apple:'Apple Maps',google:'Google Maps',
-  available:'Disponible para contacto',busy:'Ocupado · disponible en {m} min',
-  offline:'No disponible por ahora',unknown:'Disponibilidad por WhatsApp',
-  wa:'Hola, quiero contactar con EjeRide.'
+  lead:'Envía tu punto de recogida por WhatsApp en un solo paso. Sin formulario y sin instalar otra aplicación.',
+  mainButton:'Enviar mi ubicación por WhatsApp',chatOnly:'Escribir sin compartir ubicación',
+  step1:'Toca el botón',step2:'Permite la ubicación',step3:'Pulsa enviar en WhatsApp',
+  privacy:'EjeRide no guarda tu posición en el sitio. El mensaje no se envía hasta que tú lo confirmas en WhatsApp.',
+  locating:'Buscando tu ubicación…',opening:'Ubicación lista. Abriendo WhatsApp…',
+  fallbackTitle:'No pudimos obtener tu ubicación',retry:'Reintentar',openWhatsapp:'Abrir WhatsApp',
+  fallbackIOS:'En WhatsApp, toca + → Ubicación → Enviar ubicación actual.',
+  fallbackAndroid:'En WhatsApp, toca el clip → Ubicación → Enviar ubicación actual.',
+  fallbackOther:'Abre WhatsApp y utiliza Adjuntar → Ubicación → Enviar ubicación actual.',
+  available:'Disponible para contacto',busy:'Ocupado · disponible en {m} min',offline:'No disponible por ahora',unknown:'Disponibilidad por WhatsApp',
+  plainMessage:'Hola EjeRide, quiero consultar disponibilidad para un trayecto.',
+  locationMessage:'Hola EjeRide, quiero solicitar disponibilidad.\n\n📍 Mi punto de recogida:\n{url}\n\nDestino: '
  },
  en:{
   sub:'Driver mobility',title:'Travel calmly.<br>Direct contact.',
-  lead:'Check availability and share your location using the app you prefer.',
-  share:'Share my location',chat:'Contact on WhatsApp',
-  apps:'Messages · Telegram · WhatsApp · Mail · AirDrop',
-  privacy:'Your location is shared only when you choose where to send it.',
-  locating:'Finding your location…',ready:'Choose the app you want to share it with.',
-  copied:'Location link copied. Paste it into the app you prefer.',
-  denied:'Location access is blocked in the browser.',
-  fallbackTitle:'I could not access your location',
-  fallbackText:'Open Apple Maps or Google Maps, tap your blue dot and choose Share.',
-  apple:'Apple Maps',google:'Google Maps',
-  available:'Available for contact',busy:'Busy · available in {m} min',
-  offline:'Not available right now',unknown:'Availability on WhatsApp',
-  wa:'Hello, I would like to contact EjeRide.'
+  lead:'Send your pickup point through WhatsApp in one step. No form and no extra app to install.',
+  mainButton:'Send my location on WhatsApp',chatOnly:'Message without sharing location',
+  step1:'Tap the button',step2:'Allow location',step3:'Press send in WhatsApp',
+  privacy:'EjeRide does not store your position on the website. Nothing is sent until you confirm it in WhatsApp.',
+  locating:'Finding your location…',opening:'Location ready. Opening WhatsApp…',
+  fallbackTitle:'We could not access your location',retry:'Try again',openWhatsapp:'Open WhatsApp',
+  fallbackIOS:'In WhatsApp, tap + → Location → Send your current location.',
+  fallbackAndroid:'In WhatsApp, tap the paperclip → Location → Send your current location.',
+  fallbackOther:'Open WhatsApp and use Attach → Location → Send your current location.',
+  available:'Available for contact',busy:'Busy · available in {m} min',offline:'Not available right now',unknown:'Availability on WhatsApp',
+  plainMessage:'Hello EjeRide, I would like to check availability for a ride.',
+  locationMessage:'Hello EjeRide, I would like to check availability.\n\n📍 My pickup point:\n{url}\n\nDestination: '
  },
  fr:{
   sub:'Mobilité avec chauffeur',title:'Voyagez sereinement.<br>Contact direct.',
-  lead:'Vérifiez la disponibilité et partagez votre position avec l’application de votre choix.',
-  share:'Partager ma position',chat:'Contacter sur WhatsApp',
-  apps:'Messages · Telegram · WhatsApp · Mail · AirDrop',
-  privacy:'Votre position est partagée uniquement lorsque vous choisissez où l’envoyer.',
-  locating:'Recherche de votre position…',ready:'Choisissez l’application avec laquelle vous souhaitez la partager.',
-  copied:'Lien de position copié. Collez-le dans l’application de votre choix.',
-  denied:'La localisation est bloquée dans le navigateur.',
-  fallbackTitle:'Impossible d’obtenir votre position',
-  fallbackText:'Ouvrez Plans ou Google Maps, touchez votre point bleu puis utilisez Partager.',
-  apple:'Plans',google:'Google Maps',
-  available:'Disponible pour contact',busy:'Occupé · disponible dans {m} min',
-  offline:'Indisponible pour le moment',unknown:'Disponibilité sur WhatsApp',
-  wa:'Bonjour, je souhaite contacter EjeRide.'
+  lead:'Envoyez votre point de prise en charge sur WhatsApp en une seule étape. Aucun formulaire ni application supplémentaire.',
+  mainButton:'Envoyer ma position sur WhatsApp',chatOnly:'Écrire sans partager ma position',
+  step1:'Touchez le bouton',step2:'Autorisez la position',step3:'Appuyez sur envoyer dans WhatsApp',
+  privacy:'EjeRide ne conserve pas votre position sur le site. Rien n’est envoyé avant votre confirmation dans WhatsApp.',
+  locating:'Recherche de votre position…',opening:'Position prête. Ouverture de WhatsApp…',
+  fallbackTitle:'Impossible d’obtenir votre position',retry:'Réessayer',openWhatsapp:'Ouvrir WhatsApp',
+  fallbackIOS:'Dans WhatsApp, touchez + → Localisation → Envoyer votre position actuelle.',
+  fallbackAndroid:'Dans WhatsApp, touchez le trombone → Localisation → Envoyer votre position actuelle.',
+  fallbackOther:'Ouvrez WhatsApp puis utilisez Joindre → Localisation → Envoyer votre position actuelle.',
+  available:'Disponible pour contact',busy:'Occupé · disponible dans {m} min',offline:'Indisponible pour le moment',unknown:'Disponibilité sur WhatsApp',
+  plainMessage:'Bonjour EjeRide, je souhaite vérifier la disponibilité pour un trajet.',
+  locationMessage:'Bonjour EjeRide, je souhaite vérifier la disponibilité.\n\n📍 Mon point de prise en charge :\n{url}\n\nDestination : '
  }
 };
 const t=k=>copy[lang][k]||k;
+const source=(()=>{const s=new URLSearchParams(location.search).get('src');return s&&/^[a-z0-9_-]{1,24}$/i.test(s)?s.toLowerCase():''})();
+function sourceLine(){
+ if(!source)return '';
+ const labels={
+  es:{google:'Google',instagram:'Instagram',card:'la tarjeta EjeRide',qr:'el código QR'},
+  en:{google:'Google',instagram:'Instagram',card:'the EjeRide card',qr:'the QR code'},
+  fr:{google:'Google',instagram:'Instagram',card:'la carte EjeRide',qr:'le QR code'}
+ };
+ const label=(labels[lang]&&labels[lang][source])||source;
+ if(lang==='fr')return `Je vous ai trouvé via ${label}.\n`;
+ if(lang==='en')return `I found you via ${label}.\n`;
+ return `Te encontré por ${label}.\n`;
+}
+function waUrl(message){return `https://wa.me/${String(cfg.whatsapp||'').replace(/\D/g,'')}?text=${encodeURIComponent(sourceLine()+message)}`}
+function updateChat(){
+ const url=waUrl(t('plainMessage'));
+ $('[data-chat]').href=url;$('[data-chat-fallback]').href=url;
+ [$('[data-chat]'),$('[data-chat-fallback]')].forEach(a=>{a.target='_blank';a.rel='noopener'});
+}
+function renderStatus(){
+ const b=$('[data-status]'),s=$('[data-status-text]');b.className='status';
+ if(!live){s.textContent=t('unknown');return}
+ if(live.status==='available'){b.classList.add('available');s.textContent=t('available');return}
+ if(live.status==='busy'){
+  b.classList.add('busy');
+  const m=live.availableAt?Math.max(1,Math.ceil((live.availableAt-Date.now())/60000)):live.minutes||30;
+  s.textContent=t('busy').replace('{m}',m);return
+ }
+ s.textContent=t('offline')
+}
 async function loadConfig(){try{const r=await fetch('/.netlify/functions/config');if(r.ok)cfg={...cfg,...await r.json()}}catch{}updateChat()}
-function updateChat(){const a=document.querySelector('[data-chat]');a.href=`https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent(t('wa'))}`;a.target='_blank';a.rel='noopener'}
-function renderStatus(){const b=document.querySelector('[data-status]'),s=document.querySelector('[data-status-text]');b.className='status';if(!live){s.textContent=t('unknown');return}if(live.status==='available'){b.classList.add('available');s.textContent=t('available');return}if(live.status==='busy'){b.classList.add('busy');const m=live.availableAt?Math.max(1,Math.ceil((live.availableAt-Date.now())/60000)):live.minutes||30;s.textContent=t('busy').replace('{m}',m);return}s.textContent=t('offline')}
 async function loadStatus(){try{const r=await fetch('/.netlify/functions/status',{cache:'no-store'});live=r.ok?await r.json():null}catch{live=null}renderStatus()}
-function setLang(x){lang=x;document.documentElement.lang=x;document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===x));document.querySelectorAll('[data-i18n]').forEach(e=>{const v=t(e.dataset.i18n);v.includes('<br>')?e.innerHTML=v:e.textContent=v});updateChat();renderStatus()}
+function updateFallbackText(){
+ const ua=navigator.userAgent||'';
+ const key=/iPad|iPhone|iPod/.test(ua)?'fallbackIOS':/Android/i.test(ua)?'fallbackAndroid':'fallbackOther';
+ $('[data-fallback-text]').textContent=t(key)
+}
+function setLang(x){
+ lang=x;document.documentElement.lang=x;
+ document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===x));
+ document.querySelectorAll('[data-i18n]').forEach(e=>{const v=t(e.dataset.i18n);v.includes('<br>')?e.innerHTML=v:e.textContent=v});
+ updateFallbackText();updateChat();renderStatus()
+}
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
-const message=document.querySelector('[data-message]');
-const fallback=document.querySelector('[data-fallback]');
-async function shareLocation(){
- fallback.classList.remove('show');message.textContent=t('locating');
- if(!navigator.geolocation){message.textContent=t('denied');fallback.classList.add('show');return}
- navigator.geolocation.getCurrentPosition(async pos=>{
-   const lat=pos.coords.latitude.toFixed(6),lng=pos.coords.longitude.toFixed(6);
-   const ios=/iPad|iPhone|iPod/.test(navigator.userAgent);
-   const mapUrl=ios?`https://maps.apple.com/?ll=${lat},${lng}&q=Pickup`:`https://www.google.com/maps?q=${lat},${lng}`;
-   const text=lang==='es'?`Hola, esta es mi ubicación para la recogida EjeRide:`:lang==='fr'?`Bonjour, voici ma position pour la prise en charge EjeRide :`:`Hello, this is my EjeRide pickup location:`;
-   message.textContent=t('ready');
-   try{
-     if(navigator.share){await navigator.share({title:'EjeRide · Location',text,url:mapUrl});message.textContent=''}
-     else{await navigator.clipboard.writeText(`${text} ${mapUrl}`);message.textContent=t('copied')}
-   }catch(e){if(e?.name!=='AbortError'){try{await navigator.clipboard.writeText(`${text} ${mapUrl}`);message.textContent=t('copied')}catch{message.textContent=mapUrl}}}
- },err=>{message.textContent=t('denied');fallback.classList.add('show')},{enableHighAccuracy:true,timeout:12000,maximumAge:15000});
+const button=$('[data-location-whatsapp]'),label=button.querySelector('[data-i18n="mainButton"]'),message=$('[data-message]'),fallback=$('[data-fallback]');
+function resetButton(){button.disabled=false;label.textContent=t('mainButton')}
+function showFallback(){resetButton();message.textContent='';fallback.classList.add('show');updateFallbackText()}
+function sendLocation(){
+ fallback.classList.remove('show');button.disabled=true;label.textContent=t('locating');message.textContent='';
+ if(!navigator.geolocation){showFallback();return}
+ navigator.geolocation.getCurrentPosition(pos=>{
+  const lat=pos.coords.latitude.toFixed(6),lng=pos.coords.longitude.toFixed(6);
+  const maps=`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(lat+','+lng)}`;
+  label.textContent=t('opening');
+  const text=t('locationMessage').replace('{url}',maps);
+  setTimeout(()=>{location.href=waUrl(text);resetButton()},180)
+ },()=>showFallback(),{enableHighAccuracy:true,timeout:12000,maximumAge:30000})
 }
-document.querySelector('[data-share-location]').onclick=shareLocation;
-loadConfig();loadStatus();setInterval(loadStatus,60000);
+button.onclick=sendLocation;$('[data-retry]').onclick=sendLocation;
+loadConfig();loadStatus();setLang('es');setInterval(loadStatus,60000);
 })();
 </script>
 </body>
